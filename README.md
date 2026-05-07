@@ -1,2 +1,2 @@
 # NYXCORE-MD
-NyxCore-MD WhatsApp bot created by NyxCoreTech
+NYXCORE-MD WhatsApp bot created by NyxCoreTech
