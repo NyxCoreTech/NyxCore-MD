@@ -31,8 +31,8 @@ async function autoreadCommand(sock, chatId, message) {
                     forwardingScore: 1,
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
-                        newsletterJid: 'add your chanel jid',
-                        newsletterName: 'add your name bot',
+                        newsletterJid: '120363426242342797@newsletter',
+                        newsletterName: '𝙽𝚈𝚇𝙲𝙾𝚁𝙴 𝙼𝙳',
                         serverMessageId: -1
                     }
                 }
