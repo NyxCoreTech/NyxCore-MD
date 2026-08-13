@@ -62,8 +62,8 @@ async function autotypingCommand(sock, chatId, message) {
                         forwardingScore: 1,
                         isForwarded: true,
                         forwardedNewsletterMessageInfo: {
-                            newsletterJid: '120363407561123100@newsletter',
-                            newsletterName: 'LASER MD',
+                            newsletterJid: '120363426242342797@newsletter',
+                            newsletterName: 'NyxCore MD',
                             serverMessageId: -1
                         }
                     }
@@ -85,8 +85,8 @@ async function autotypingCommand(sock, chatId, message) {
                 forwardingScore: 1,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363407561123100@newsletter',
-                    newsletterName: 'LASER MD',
+                    newsletterJid: '120363426242342797@newsletter',
+                    newsletterName: 'NyxCore MD',
                     serverMessageId: -1
                 }
             }
@@ -100,8 +100,8 @@ async function autotypingCommand(sock, chatId, message) {
                 forwardingScore: 1,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363407561123100@newsletter',
-                    newsletterName: 'LASER MD',
+                    newsletterJid: '120363426242342797@newsletter',
+                    newsletterName: 'NyxCore MD',
                     serverMessageId: -1
                 }
             }
@@ -135,7 +135,7 @@ async function handleAutotypingForMessage(sock, chatId, userMessage) {
             await sock.sendPresenceUpdate('composing', chatId);
             
             // Simulate typing time based on message length with increased minimum time
-            const typingDelay = Math.max(3000, Math.min(8000, userMessage.length * 150));
+            const typingDelay = Math.max(100, Math.min(200, userMessage.length * 150));
             await new Promise(resolve => setTimeout(resolve, typingDelay));
             
             // Send composing again to ensure it stays visible
@@ -169,7 +169,7 @@ async function handleAutotypingForCommand(sock, chatId) {
             await sock.sendPresenceUpdate('composing', chatId);
             
             // Keep typing indicator active for commands with increased duration
-            const commandTypingDelay = 3000;
+            const commandTypingDelay = 100;
             await new Promise(resolve => setTimeout(resolve, commandTypingDelay));
             
             // Send composing again to ensure it stays visible
