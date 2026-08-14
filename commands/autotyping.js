@@ -140,7 +140,7 @@ async function handleAutotypingForMessage(sock, chatId, userMessage) {
             
             // Send composing again to ensure it stays visible
             await sock.sendPresenceUpdate('composing', chatId);
-            await new Promise(resolve => setTimeout(resolve, 1500));
+            await new Promise(resolve => setTimeout(resolve, 100));
             
             // Finally send paused status
             await sock.sendPresenceUpdate('paused', chatId);
@@ -174,7 +174,7 @@ async function handleAutotypingForCommand(sock, chatId) {
             
             // Send composing again to ensure it stays visible
             await sock.sendPresenceUpdate('composing', chatId);
-            await new Promise(resolve => setTimeout(resolve, 1500));
+            await new Promise(resolve => setTimeout(resolve, 100));
             
             // Finally send paused status
             await sock.sendPresenceUpdate('paused', chatId);
@@ -202,7 +202,7 @@ async function showTypingAfterCommand(sock, chatId) {
             await sock.sendPresenceUpdate('composing', chatId);
             
             // Keep typing visible for a short time
-            await new Promise(resolve => setTimeout(resolve, 1000));
+            await new Promise(resolve => setTimeout(resolve, 100)));
             
             // Then pause
             await sock.sendPresenceUpdate('paused', chatId);

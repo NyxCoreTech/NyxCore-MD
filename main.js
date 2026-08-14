@@ -1163,7 +1163,56 @@ async function handleMessages(sock, messageUpdate, printLog) {
             case userMessage.startsWith('.sora'):
                 await soraCommand(sock, chatId, message);
                 break;
-            default:
+    
+        case userMessage.startsWith('.balance') || userMessage.startsWith('.bal'):
+            await economyCommand(sock, chatId, senderId, 'balance', args);
+            break;
+        case userMessage.startsWith('.daily'):
+            await economyCommand(sock, chatId, senderId, 'daily', args);
+            break;
+        case userMessage.startsWith('.work'):
+            await economyCommand(sock, chatId, senderId, 'work', args);
+            break;
+        case userMessage.startsWith('.deposit') || userMessage.startsWith('.dep'):
+            await economyCommand(sock, chatId, senderId, 'deposit', args);
+            break;
+        case userMessage.startsWith('.withdraw') || userMessage.startsWith('.with'):
+            await economyCommand(sock, chatId, senderId, 'withdraw', args);
+            break;
+        case userMessage.startsWith('.richest'):
+            await economyCommand(sock, chatId, senderId, 'richest', args);
+            break;
+        case userMessage.startsWith('.pay'):
+            await economyCommand(sock, chatId, senderId, 'pay', args);
+            break;
+        case userMessage.startsWith('.rob'):
+            await economyCommand(sock, chatId, senderId, 'rob', args);
+            break;
+        case userMessage.startsWith('.addcoins'):
+        case userMessage.startsWith('.removecoins'):
+        case userMessage.startsWith('.reseteconomy'):
+        case userMessage.startsWith('.setprefix'):
+        case userMessage.startsWith('.setsudo'):
+        case userMessage.startsWith('.delsudo'):
+        case userMessage.startsWith('.listsudo'):
+            if (isOwnerCheck(senderId)) {
+                if (command === 'addcoins'  command === 'removecoins'  command === 'reseteconomy') await economyCommand(sock, chatId, senderId, command, args);
+                else await ownerToolsCommand(sock, chatId, senderId, command, args);
+            } else await sock.sendMessage(chatId, { text: '? Owner only command.' });
+            break;
+        case userMessage.startsWith('.wcg'):
+            await wcgCommand(sock, chatId, senderId, args);
+            break;
+        case userMessage.startsWith('.antimention'):
+            await antiMentionCommand(sock, chatId, senderId, args, isAdminSender);
+            break;
+        case userMessage.startsWith('.song'):
+            await songCommand(sock, chatId, args);
+            break;
+        case userMessage.startsWith('.play'):
+            await playCommand(sock, chatId, args);
+            break;
+        default:
                 if (isGroup) {
                     // Handle non-command group messages
                     if (userMessage) {  // Make sure there's a message
@@ -1267,3 +1316,4 @@ module.exports = {
         await handleStatusUpdate(sock, status);
     }
 };
+
